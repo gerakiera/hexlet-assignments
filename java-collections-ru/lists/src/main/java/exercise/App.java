@@ -1,6 +1,6 @@
 package exercise;
 
-//import java.util.Arrays;
+import java.util.Arrays;
 import java.util.ArrayList;
 //import java.util.List;
 
@@ -17,8 +17,12 @@ public class App {
         for (var w : newWord) {
             charOfWord.add(w);
         }
-        var result = charList.containsAll(charOfWord) ? true : false;
-            return result;
+        for (var ch : charOfWord) {
+            if (!charList.contains(ch))
+                return  false;
+        } else {
+            return true;
+        }
     }
 }
 //END
