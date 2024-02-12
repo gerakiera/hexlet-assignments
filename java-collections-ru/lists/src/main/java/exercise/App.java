@@ -17,10 +17,13 @@ public class App {
         for (var w : newWord) {
             charOfWord.add(w);
         }
-        for (var ch : charList) {
-            if (!charOfWord.contains(ch)) {
-                return  false;
+        var i = 0;
+        for (var ch : charOfWord) {
+            if (!charList.contains(ch)) {
+                return false;
             }
+            charList.remove(charOfWord.get(i));
+            i++;
         }
         return true;
     }
