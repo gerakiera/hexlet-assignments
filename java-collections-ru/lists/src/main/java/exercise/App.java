@@ -18,10 +18,11 @@ public class App {
             charOfWord.add(w);
         }
         for (var ch : charOfWord) {
-            if (!charList.contains(ch))
+            if (!charList.contains(ch)) {
                 return  false;
         } else {
-            return true;
+                return true;
+            }
         }
     }
 }
