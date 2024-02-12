@@ -17,8 +17,8 @@ public class App {
         for (var w : newWord) {
             charOfWord.add(w);
         }
-        for (var ch : charOfWord) {
-            if (!charList.contains(ch)) {
+        for (var ch : charList) {
+            if (!charOfWord.contains(ch)) {
                 return  false;
             }
         }
