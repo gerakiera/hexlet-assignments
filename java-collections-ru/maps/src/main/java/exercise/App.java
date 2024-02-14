@@ -23,14 +23,14 @@ public  class App {
     public static String toString(Map<String, Integer> wordCount) {
         var keys = wordCount.keySet();
         var values = wordCount.values();
-        String result = null;
+        StringBuilder result = new StringBuilder();
         for (var key : keys) {
             for (var value : values) {
-                result = "{" + "\n" + "  " + key + ":  " +
-                        value + "\n";
+                result = new StringBuilder("\n" + "  " + key + ":  " +
+                        value);
             }
         }
-        return result;
+        return "{" + result + "\n}";
     }
 }
 //END
