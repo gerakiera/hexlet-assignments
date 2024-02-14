@@ -5,20 +5,20 @@ import java.util.Map;
 
 // BEGIN
 public  class App {
-    public static Map<String, Integer> getWordCount(String sentenсe) {
-        var wordCount = new HashMap<String, Integer>;
-        var sentenceArr = sentenсe.split(" ");
-        if (sentenсe.isEmpty()) {
+    public static Map<String, Integer> getWordCount(String sentence) {
+        var wordCount = new HashMap<String, Integer>();
+        var sentenceArr = sentence.split(" ");
+        if (sentence.isEmpty()) {
             return wordCount;
         }
         for (var s : sentenceArr) {
             var count = 0;
             if (!wordCount.containsKey(s)) {
-                wordCount.put(s, count);
+                wordCount.put(s, 1);
             }
-                wordCount.put(s, count++);
-            return wordCount;
-       }
+                wordCount.put(s, wordCount.get(s) + 1);
+        }
+        return wordCount;
     }
     public static String toString(Map<String, Integer> wordCount) {
         var keys = wordCount.keySet();
