@@ -24,12 +24,8 @@ public  class App {
         var keys = wordCount.keySet();
         var values = wordCount.values();
         StringBuilder result = new StringBuilder();
-        for (var key : keys) {
-            for (var value : values) {
-                result = new StringBuilder("\n" + "  " + key + ":  " +
-                        value);
-            }
-        }
+        for (Map.Entry<String, Integer> entry : wordCount.entrySet())
+            result.append("\n" + "  ").append(entry.getKey()).append(": ").append(entry.getValue().toString());
         return "{" + result + "\n}";
     }
 }
