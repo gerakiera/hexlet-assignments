@@ -7,16 +7,16 @@ import java.util.ArrayList;
 
 // BEGIN
 public class App {
-    public static Map<String, String> findWhere(List<Map<String, String>> listOfBooks,
+    public static List<Map<String, String>> findWhere(List<Map<String, String>> listOfBooks,
                                                 Map<String, String> filterValues) {
-        List<String> result = new ArrayList<>();
+        List<Map<String, String>> result = new ArrayList<>();
         var i = 0;
-        for (var list : listOfBooks) {
-            if (list.entrySet().containsAll(filterValues.entrySet())) {
-                result.add(list.toString());
+        for (var book : listOfBooks) {
+            if (book.entrySet().containsAll(filterValues.entrySet())) {
+                result.add(book);
             }
         }
-        return (Map<String, String>) result;
+        return result;
     }
 }
 //END
