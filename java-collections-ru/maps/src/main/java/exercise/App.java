@@ -15,7 +15,7 @@ public  class App {
             if (!wordCount.containsKey(s)) {
                 wordCount.put(s, 0);
             }
-                wordCount.put(s, wordCount.get(s) + 1);
+            wordCount.put(s, wordCount.get(s) + 1);
         }
         return wordCount;
     }
@@ -23,8 +23,9 @@ public  class App {
         var keys = wordCount.keySet();
         var values = wordCount.values();
         StringBuilder result = new StringBuilder();
-        for (Map.Entry<String, Integer> entry : wordCount.entrySet())
+        for (Map.Entry<String, Integer> entry : wordCount.entrySet()) {
             result.append("\n" + "  ").append(entry.getKey()).append(": ").append(entry.getValue().toString());
+        }
         return "{" + result + "\n}";
     }
 }
