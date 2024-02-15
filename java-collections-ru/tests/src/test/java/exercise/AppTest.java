@@ -1,10 +1,10 @@
 package exercise;
 
-import static org.assertj.core.api.Assertions.assertThat;
+//import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
-import java.util.concurrent.ArrayBlockingQueue;
+//import java.util.concurrent.ArrayBlockingQueue;
 
 import org.junit.jupiter.api.Test;
 
@@ -20,7 +20,7 @@ class AppTest {
         for (var i = 0; i < expected.size(); i++) {
             result.add(input.get(i))
         }
-            assertEquals(expected, result);
+        assertEquals(expected, result);
 
         // END
     }
