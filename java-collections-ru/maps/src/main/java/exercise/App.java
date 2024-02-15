@@ -22,12 +22,12 @@ public  class App {
     public static String toString(Map<String, Integer> wordCount) {
         var keys = wordCount.keySet();
         var values = wordCount.values();
-        StringBuilder result = new StringBuilder();
+        StringBuilder result = new StringBuilder("{\n");
         for (Map.Entry<String, Integer> entry : wordCount.entrySet()) {
-            result.append("\n" + "  ").append(entry.getKey()).append(": ").append(entry.getValue().toString())
-                    .append("\n");
+            result.append("  ").append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
         }
-        return "{" + result + "}";
+        result.append("}");
+        return result.toString();
     }
 }
 //END
