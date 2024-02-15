@@ -18,7 +18,7 @@ class AppTest {
         List<Integer> result = new ArrayList();
         int number = 3;
         for (var i = 0; i < expected.size(); i++) {
-            result.add(input.get(i))
+            result.add(input.get(i));
         }
         assertEquals(expected, result);
 
