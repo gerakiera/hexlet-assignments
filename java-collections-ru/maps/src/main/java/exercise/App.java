@@ -27,7 +27,7 @@ public  class App {
             result.append("\n" + "  ").append(entry.getKey()).append(": ").append(entry.getValue().toString())
                     .append("\n");
         }
-        return "{" + result + "\n}";
+        return "{" + result + "}";
     }
 }
 //END
