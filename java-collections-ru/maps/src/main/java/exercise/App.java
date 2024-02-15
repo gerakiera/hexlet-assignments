@@ -12,9 +12,8 @@ public  class App {
             return wordCount;
         }
         for (var s : sentenceArr) {
-            var count = 0;
             if (!wordCount.containsKey(s)) {
-                wordCount.put(s, 1);
+                wordCount.put(s, 0);
             }
                 wordCount.put(s, wordCount.get(s) + 1);
         }
