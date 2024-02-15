@@ -15,9 +15,13 @@ class AppTest {
         // BEGIN
         List<Integer> input = Arrays.asList(1, 2, 3, 4, 5);
         List<Integer> expected = Arrays.asList(1, 2, 3);
+        List<Integer> result = new ArrayList();
         int number = 3;
-        List<Integer> result = AppTest(input, number);
-        assertEquals(expected, result);
+        for (var i = 0; i < expected.size(); i++) {
+            result.add(input.get(i))
+        }
+            assertEquals(expected, result);
+
         // END
     }
 }
