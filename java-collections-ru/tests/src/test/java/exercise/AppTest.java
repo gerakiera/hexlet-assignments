@@ -13,15 +13,26 @@ class AppTest {
     @Test
     void testTake() {
         // BEGIN
-        List<Integer> input = Arrays.asList(1, 2, 3, 4, 5);
-        List<Integer> expected = Arrays.asList(1, 2, 3);
-        List<Integer> result = new ArrayList();
-        int number = 3;
-        for (var i = 0; i < expected.size(); i++) {
-            result.add(input.get(i));
+        List<Integer> list = new ArrayList<>(15, 8, 3, 20, 20, 7, 84, 121, 3);
+        var actual1 = App.take(list, 3);
+        List<Integer> expected1 = new ArrayList<>();
+        for (var i = 0; i < count; i++) {
+            expected1.add(list(i));
         }
-        assertEquals(expected, result);
+        assertThat(actual1).isEqualTo(expected1);
 
+        var actual2 = App.take(list, 9);
+        var expected2 = list;
+        assertThat(actual2).isEqualTo(expected2);
+
+        List<Integer> emptyList = new ArrayList<>();
+        var actual3 = App.take(emptyList, 25);
+        var expected3 = emptyList;
+        assertThat(actual3).isEqualTo(expected3);
+
+        var actual4 = App.take(list, 0);
+        var expected4 = emptyList;
+        assertThat(actual4).isEqualTo(expected4);
         // END
     }
 }
