@@ -13,7 +13,7 @@ class AppTest {
     @Test
     void testTake() {
         // BEGIN
-        List<Integer> list = new ArrayList<>(Arrays.asList(15, 8, 3, 20, 20, 7, 84, 121, 3));
+        List<Integer> list = new ArrayList<>(Arrays.asList(15, 8, 3, 20, 20, 7, 84, 11, 3));
         var count = 3;
         var actual1 = App.take(list, count);
         List<Integer> expected1 = new ArrayList<>();
