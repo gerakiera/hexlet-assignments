@@ -18,7 +18,7 @@ class AppTest {
         var actual1 = App.take(list, count);
         List<Integer> expected1 = new ArrayList<>();
         for (var i = 0; i < count; i++) {
-            expected1.add(list(i));
+            expected1.add(list.get(i));
         }
         assertThat(actual1).isEqualTo(expected1);
 
