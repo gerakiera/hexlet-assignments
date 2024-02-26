@@ -27,7 +27,8 @@ public class AppTest {
                 {"*", "*", "*", "*", "*", "*", "*", "*"},
                 {"*", "*", "*", "*", "*", "*", "*", "*"}
         };
-        assertThat(Arrays.deepToString(enlargeArrayImage(image))).isEqualTo(Arrays.deepToString(expectedEnlargedImage));
+        String[][] enlargedImage = App.enlargeArrayImage(image);
+        assertThat(Arrays.deepToString(enlargedImage).isEqualTo(Arrays.deepToString(expectedEnlargedImage));
     }
 }
 // END

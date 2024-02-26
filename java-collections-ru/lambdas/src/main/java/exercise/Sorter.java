@@ -15,5 +15,6 @@ public class Sorter {
             .map(user -> user.get("name"))
             .collect(Collectors.toList());
     }
+    return oldestMans;
 }
 // END
