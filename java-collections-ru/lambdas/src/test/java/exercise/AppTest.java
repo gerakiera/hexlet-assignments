@@ -1,8 +1,8 @@
 package exercise;
 
-//import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Test;
 
-//import java.lang.reflect.Array;
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
