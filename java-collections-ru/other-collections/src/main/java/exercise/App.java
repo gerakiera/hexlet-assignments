@@ -1,7 +1,9 @@
 package exercise;
 
-import java.util.*;
+import com.google.common.base.Objects;
+
 import java.util.stream.Collectors;
+import java.util.Map;
 
 // BEGIN
 public class App {
