@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 // BEGIN
 public class App {
-    public static LinkedHashMap<String, String> genDiff(Map<String, Objects> dictionaryOne,
+    public static Map<String, String> genDiff(Map<String, Objects> dictionaryOne,
                                                         Map<String, Objects> dictionaryTwo) {
         Map<String, String> result;
         result = dictionaryOne.entrySet().stream()
@@ -25,9 +25,9 @@ public class App {
                 .filter(e -> dictionaryTwo.containsKey(e.getKey()))
                 .filter(e -> !dictionaryTwo.get(e.getKey()).equals(e.getValue()))
                 .collect(Collectors.toMap(Map.Entry::getKey, e -> "changed")));
-        LinkedHashMap<String, String> linkedHashMapResult = new LinkedHashMap<>(result);
+        //LinkedHashMap<String, String> linkedHashMapResult = new LinkedHashMap<>(result);
 
-        return linkedHashMapResult;
+        return result;
     }
 }
 //END
