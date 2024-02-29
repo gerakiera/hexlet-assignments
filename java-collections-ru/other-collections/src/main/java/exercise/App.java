@@ -8,26 +8,21 @@ import java.util.stream.Collectors;
 public class App {
     public static Map<String, String> genDiff(Map<String, Objects> dictionaryOne,
                                                         Map<String, Objects> dictionaryTwo) {
-        Map<String, String> result;
-        result = dictionaryOne.entrySet().stream()
-                .filter(e -> !dictionaryTwo.containsKey(e.getKey()))
-                .collect(Collectors.toMap(Map.Entry::getKey, e -> "deleted"));
+        Map<String, String> result = new LinkedHashMap<>();
+        Set<String> keys = new TreeSet<>(dictionaryOne.keySet());
+        keys.addAll(dictionaryTwo.keySet());
 
-        result.putAll(dictionaryTwo.entrySet().stream()
-                .filter(e -> !dictionaryOne.containsKey(e.getKey()))
-                .collect(Collectors.toMap(Map.Entry::getKey, e -> "added")));
-
-        result.putAll(dictionaryOne.entrySet().stream()
-                .filter(e -> dictionaryTwo.containsKey(e.getKey()))
-                .filter(e -> dictionaryTwo.get(e.getKey()).equals(e.getValue()))
-                .collect(Collectors.toMap(Map.Entry::getKey, e -> "unchanged")));
-
-        result.putAll(dictionaryOne.entrySet().stream()
-                .filter(e -> dictionaryTwo.containsKey(e.getKey()))
-                .filter(e -> !dictionaryTwo.get(e.getKey()).equals(e.getValue()))
-                .collect(Collectors.toMap(Map.Entry::getKey, e -> "changed")));
-        //LinkedHashMap<String, String> linkedHashMapResult = new LinkedHashMap<>(result);
-
+        for (String key: keys) {
+            if (!dictionaryOne.containsKey(key)) {
+                result.put(key, "added");
+            } else if (!dictionaryTwo.containsKey(key)) {
+                result.put(key, "deleted");
+            } else if (dictionaryOne.get(key).equals(dictionaryTwo.get(key))) {
+                result.put(key, "unchanged");
+            } else {
+                result.put(key, "changed");
+            }
+        }
         return result;
     }
 }
