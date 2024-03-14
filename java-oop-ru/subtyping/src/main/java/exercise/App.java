@@ -19,7 +19,6 @@ public class App {
                 swappedKeyValueMap.put(value, key);
             }
         }
-        keyValueStorage.unsetAll();
         for (Map.Entry<String, String> entry : swappedKeyValueMap.entrySet()) {
             keyValueStorage.set(entry.getKey(), entry.getValue());
         }
