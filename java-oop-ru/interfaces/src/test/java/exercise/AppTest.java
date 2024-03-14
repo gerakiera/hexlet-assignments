@@ -65,10 +65,12 @@ class AppTest {
         char charExp = 'r';
         String reversWord = "teerts";
         String subSequenceExp = "str";
-        assertThat(word.length()).isEqualTo(lenghtExp);
-        assertThat(word.charAt(2)).isEqualTo(charExp);
-        assertThat(word.toString()).isEqualTo(reversWord);
-        assertThat(word.subSequence(1, 4)).isEqualTo(subSequenceExp);
+        ReversedSequence reversedSequence = new ReversedSequence();
+        reversedSequence.word = word;
+        assertThat(reversedSequence.length()).isEqualTo(lenghtExp);
+        assertThat(reversedSequence.charAt(2)).isEqualTo(charExp);
+        assertThat(reversedSequence.toString()).isEqualTo(reversWord);
+        assertThat(reversedSequence.subSequence(1, 4)).isEqualTo(subSequenceExp);
 
     }
     // END
