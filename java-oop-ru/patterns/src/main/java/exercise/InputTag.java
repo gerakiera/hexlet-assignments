@@ -9,8 +9,9 @@ public class InputTag implements TagInterface {
         this.value = value;
     }
     @Override
-    public String render(String typeOne, String valueOne) {
-        return "<input type=\"" + typeOne + "\" value=\"" + valueOne + "\">";
+    public String render() {
+        return "<input type=\"" + this.typeOne + "\" value=\""
+                + this.valueOne + "\">";
     }
 }
 // END

@@ -3,14 +3,15 @@ package exercise;
 // BEGIN
 public class LabelTag implements TagInterface {
     String textOfTag;
-    TagInterface tagInterface = new TagInterface();
+    TagInterface tagInterface;
 
     public LabelTag(String textOfTag, TagInterface tagInterface) {
         this.textOfTag = textOfTag;
         this.tagInterface = tagInterface;
     }
-    public String render(String text, TagInterface tag) {
-        return "<label>" + text + tag.render() + "</label>";
+    @Override
+    public String render() {
+        return "<label>" + this.textOfTag + this.tagInterface.render() + "</label>";
     }
 }
 // END
