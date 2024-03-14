@@ -24,6 +24,5 @@ class FileKVTest {
     }
 
     // BEGIN
-    
     // END
 }

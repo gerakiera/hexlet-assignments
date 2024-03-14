@@ -16,7 +16,7 @@ public class InMemoryKV implements KeyValueStorage {
         startValue.remove(key);
     }
     public String get(String key, String defaultValue) {
-        return startValue.getOrDefault(key,defaultValue);
+        return startValue.getOrDefault(key, defaultValue);
     }
     public Map<String, String> toMap() {
         Map<String, String> map = new HashMap<>();
