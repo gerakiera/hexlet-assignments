@@ -1,5 +1,6 @@
 package exercise;
 
+import com.google.common.annotations.VisibleForTesting;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import java.util.ArrayList;
@@ -57,5 +58,18 @@ class AppTest {
     }
 
     // BEGIN
+    @Test
+    void test ReversedSequence() {
+        String word = "street";
+        int lenghtExp = 6;
+        char charExp = 'r';
+        String reversWord = "teerts";
+        String subSequenceExp = "str";
+        assertThat(word.length()).isEqualTo(lenghtExp);
+        assertThat(word.charAt(2)).isEqualTo(charExp);
+        assertThat(word.toString()).isEqualTo(reversWord);
+        assertThat(word.subSequence(1,4)).isEqualTo(subSequenceExp);
+
+    }
     // END
 }
