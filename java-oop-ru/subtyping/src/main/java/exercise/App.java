@@ -15,8 +15,8 @@ public class App {
             String key = entry.getKey();
             String value = entry.getValue();
             swappedKeyValueMap.put(value, key);
-            keyValueStorage.set(swappedKeyValueMap);
         }
+        keyValueStorage.set(swappedKeyValueMap);
     }
 }
-// ENDc
+// END
