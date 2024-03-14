@@ -3,7 +3,7 @@ package exercise;
 // BEGIN
 public class LabelTag implements TagInterface {
     String textOfTag;
-    TagInterface tagInterface = new TagInterface;
+    TagInterface tagInterface = new TagInterface();
 
     public LabelTag(String textOfTag, TagInterface tagInterface) {
         this.textOfTag = textOfTag;
