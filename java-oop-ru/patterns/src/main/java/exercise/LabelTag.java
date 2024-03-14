@@ -10,7 +10,7 @@ public class LabelTag implements TagInterface {
         this.tagInterface = tagInterface;
     }
     public String render(String textOfTag, TagInterface tagInterface) {
-        return "<label>" + textOfTag + tagInterface.render() + "</label>";
+        return "<label>" + this.textOfTag + this.tagInterface.render() + "</label>";
     }
 }
 // END
