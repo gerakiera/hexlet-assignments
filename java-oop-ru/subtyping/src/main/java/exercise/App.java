@@ -14,7 +14,8 @@ public class App {
         for (Map.Entry<String, String> entry : result.entrySet()) {
             String key = entry.getKey();
             String value = entry.getValue();
-            if (!keyValueStorage.containsKey(value)) {
+            swappedKeyValueMap.put(value, key);
+            if (!swappedKeyValueMap.containsKey(value)) {
                 keyValueStorage.set(value, key);
             }
         }
