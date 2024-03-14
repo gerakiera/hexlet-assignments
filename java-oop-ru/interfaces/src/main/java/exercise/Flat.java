@@ -25,11 +25,11 @@ public class Flat implements Home {
                 + " этаже";
     }
     @Override
-    public int compareTo(Flat flat) {
-        if (area > flat.getArea()) {
+    public int compareTo(Home another) {
+        if (getArea() > another.getArea()) {
             return 1;
         }
-        if (area == flat.getArea()) {
+        if (getArea() == another.getArea()) {
             return 0;
         } else {
             return -1;

@@ -1,5 +1,4 @@
 package exercise;
-import Home;
 
 // BEGIN
 public class Cottage implements Home {
@@ -20,11 +19,11 @@ public class Cottage implements Home {
                 + " метров";
     }
     @Override
-    public int compareTo(Cottage cottage) {
-        if (area > cottage.getArea()) {
+    public int compareTo(Home another) {
+        if (getArea() > another.getArea()) {
             return 1;
         }
-        if (area == cottage.getArea()) {
+        if (getArea() == another.getArea()) {
             return 0;
         } else {
             return -1;
