@@ -9,12 +9,13 @@ import java.util.Map;
 // BEGIN
 public class App {
     public static void swapKeyValue(KeyValueStorage keyValueStorage) {
-    Map<String, String> result = keyValueStorage.toMap();
-    Map<String, String> swappedKeyValueMap = new HashMap<>();
+        Map<String, String> result = keyValueStorage.toMap();
+        Map<String, String> swappedKeyValueMap = new HashMap<>();
         for (Map.Entry<String, String> entry : result.entrySet()) {
             String key = entry.getKey();
             String value = entry.getValue();
             swappedKeyValueMap.put(value, key);
+            keyValueStorage.set(swappedKeyValueMap);
         }
     }
 }
