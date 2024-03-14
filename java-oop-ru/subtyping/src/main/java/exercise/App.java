@@ -14,9 +14,8 @@ public class App {
         for (Map.Entry<String, String> entry : result.entrySet()) {
             String key = entry.getKey();
             String value = entry.getValue();
-            swappedKeyValueMap.put(value, key);
+            keyValueStorage.set(value, key);
         }
-        keyValueStorage.set(swappedKeyValueMap);
     }
 }
 // END
