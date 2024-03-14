@@ -20,7 +20,12 @@ public class ReversedSequence implements CharSequence {
     }
     @Override
     public String toString() {
-        return new StringBuilder(word).reverse().toString();
+        char[] array = word.toCharArray();
+        String result = "";
+        for (int i = array.length - 1; i >= 0; i--) {
+            result = result + array[i];
+        }
+        return result;
     }
 }
 // END
