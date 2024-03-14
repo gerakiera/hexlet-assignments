@@ -64,7 +64,7 @@ class AppTest {
         int lenghtExp = 6;
         char charExp = 'r';
         String reversWord = "teerts";
-        String subSequenceExp = "str";
+        String subSequenceExp = "tre";
         ReversedSequence reversedSequence = new ReversedSequence();
         reversedSequence.word = word;
         assertThat(reversedSequence.length()).isEqualTo(lenghtExp);
