@@ -19,7 +19,7 @@ public class ReversedSequence implements CharSequence {
         return word.substring(start, end);
     }
     @Override
-    public String toString(String word) {
+    public String toString() {
         return new StringBuilder(word).reverse().toString();
     }
 }
