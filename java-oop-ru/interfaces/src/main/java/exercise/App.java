@@ -9,7 +9,8 @@ import java.util.stream.Collectors;
 public class App {
     public static List<String> buildApartmentsList(List<Home> list, int number) {
         List<String> result = new ArrayList<>();
-        List<Home> sortedList = list.stream().sorted(Comparator.comparingInt(Home::getAge)).collect(Collectors.toList());
+        List<Home> sortedList = list.stream().sorted(Comparator.comparingInt(Home::getAge))
+                .collect(Collectors.toList());
         for (var i = 0; i < Math.min(number, sortedList.size()); i++) {
             result.add(sortedList.get(i).toString());
         }
