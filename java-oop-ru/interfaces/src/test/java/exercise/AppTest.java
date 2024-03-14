@@ -59,7 +59,7 @@ class AppTest {
 
     // BEGIN
     @Test
-    void test ReversedSequence() {
+    void ReversedSequence() {
         String word = "street";
         int lenghtExp = 6;
         char charExp = 'r';
