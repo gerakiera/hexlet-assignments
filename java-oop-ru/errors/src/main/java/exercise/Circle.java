@@ -5,18 +5,19 @@ package exercise;
 public class Circle {
     private Point point;
     private int radius;
-    public Circle(Point point, int radius) throws NegativeRadiusException {
-        if (radius < 0) {
-            throw new NegativeRadiusException("Радиус отцательный");
-        }
+    public Circle(Point point, int radius) {
         this.point = point;
         this.radius = radius;
     }
     public int getRadius() {
         return radius;
     }
-    public double getSquare() {
-        return (radius * radius) * Math.PI;
+    public double getSquare() throws NegativeRadiusException {
+        if (radius < 0) {
+            throw new NegativeRadiusException("Радиус отцательный");
+        } else {
+            return getRadius() * getRadius() * Math.PI;
+        }
     }
 }
 // END
