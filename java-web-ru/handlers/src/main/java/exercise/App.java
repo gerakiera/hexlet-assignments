@@ -15,8 +15,8 @@ public final class App {
         List<String> phones = Data.getPhones();
         List<String> domains = Data.getDomains();
 
-        app.get("/phones", ctx -> ctx.toJson(phones));
-        app.get("/domains", ctx -> ctx.toJson(domains));
+        app.get("/phones", ctx -> ctx.json(phones));
+        app.get("/domains", ctx -> ctx.json(domains));
         // END
     }
 
