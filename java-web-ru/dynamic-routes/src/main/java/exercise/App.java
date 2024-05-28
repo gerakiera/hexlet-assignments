@@ -23,7 +23,7 @@ public final class App {
         vae companyId = ctx.pathParam("id");
         Map<String, String> company = COMPANIES.stream
                 .filter(x -> x.get("id").equals(companyId))
-                .orElseThrow(() -> new NotFoundResponse("Company not found"))
+                .orElseThrow(() -> new NotFoundResponse("Company not found"));
                 });
                 ctx.json(company);
         // END
