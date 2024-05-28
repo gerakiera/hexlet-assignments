@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 // BEGIN
-
+import io.javalin.http.NotFoundResponse;
 // END
 
 public final class App {
@@ -20,7 +20,7 @@ public final class App {
 
         // BEGIN
         app.get("/companies/{id}", ctx -> {
-        vae companyId = ctx.pathParam("id");
+        var companyId = ctx.pathParam("id");
         Map<String, String> company = COMPANIES.stream
                 .filter(x -> x.get("id").equals(companyId))
                 .orElseThrow(() -> new NotFoundResponse("Company not found"));
