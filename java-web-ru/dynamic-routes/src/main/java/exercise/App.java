@@ -20,12 +20,12 @@ public final class App {
 
         // BEGIN
         app.get("/companies/{id}", ctx -> {
-        var companyId = ctx.pathParam("id");
-        Map<String, String> company = COMPANIES.stream
+            var companyId = ctx.pathParam("id");
+            Map<String, String> company = COMPANIES.stream
                 .filter(x -> x.get("id").equals(companyId))
                 .orElseThrow(() -> new NotFoundResponse("Company not found"));
-                });
-                ctx.json(company);
+            ctx.json(company);
+        });
         // END
 
         app.get("/companies", ctx -> {
