@@ -24,7 +24,7 @@ public final class App {
         Map<String, String> company = COMPANIES.stream
                 .filter(x -> x.get("id").equals(companyId))
                 .orElseThrow(() -> new NotFoundResponse("Company not found"))
-                }
+                });
                 ctx.json(company);
         // END
 
