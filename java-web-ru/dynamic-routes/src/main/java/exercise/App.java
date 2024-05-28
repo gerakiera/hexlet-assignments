@@ -23,6 +23,7 @@ public final class App {
             var companyId = ctx.pathParam("id");
             Map<String, String> company = COMPANIES.stream()
                 .filter(x -> x.get("id").equals(companyId))
+                .findFirst()
                 .orElseThrow(() -> new NotFoundResponse("Company not found"));
             ctx.json(company);
         });
