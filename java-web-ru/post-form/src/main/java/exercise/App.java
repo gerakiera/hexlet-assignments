@@ -5,7 +5,7 @@ import exercise.model.User;
 import exercise.repository.UserRepository;
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinJte;
-import org.apache.commons.codec.binary.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
