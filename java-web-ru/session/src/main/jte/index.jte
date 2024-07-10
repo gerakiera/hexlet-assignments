@@ -3,14 +3,12 @@
 @param MainPage page
 
 @template.layout.page(content = @`
-    @if(page.getName() == null)
-        <h3>
-            <a href="${exercise.util.NamedRoutes.buildSessionPath()}">Enter</a>
-        </h3>
-    @else
-        <p>${String.valueOf(page.getName())}</p>
-        <form action="${NamedRoutes.logoutPath()}" method="post">
-            <input type="submit" value="Exit" />
+    @if(page.getName() != null)
+        <p>Welcome, ${page.getName().toString()}!</p>
+        <form method="post" action="${NamedRoutes.logoutPath()}">
+            <button type="submit">Выйти</button>
         </form>
+    @else
+        <p><a href="${NamedRoutes.buildSessionPath()}">Войти</a></p>
     @endif
 `)

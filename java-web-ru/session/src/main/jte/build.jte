@@ -1,29 +1,16 @@
-@import exercise.util.NamedRoutes
 @import exercise.dto.LoginPage
-@param LoginPage loginPage
+@import exercise.util.NamedRoutes
+@param LoginPage page
 
 @template.layout.page(content = @`
-    <div>
-        <form action="${NamedRoutes.loginPath()}" method="post">
-            @if(loginPage != null && !loginPage.getError().isEmpty())
-                <ul>
-                    <li>${loginPage.getError()}</li>
-                </ul>
-            @endif
-            <div>
-                <label>
-                    Имя
-                    <input type="text" name="name" value="${loginPage != null ? loginPage.getName() : ""}"/>
-                </label>
-            </div>
+    <h2>Login</h2>
+    <form action="${NamedRoutes.loginPath()}" method="post">
+        <input type="text" placeholder="Nickname" name="name" />
+        <input type="password" placeholder="Password" name="password" />
+        <input type="submit" />
+    </form>
 
-            <div>
-                <label>
-                    Пароль
-                    <input type="password" name="password" />
-                </label>
-            </div>
-            <input type="submit" value="Enter">
-        </form>
-    </div>
+    @if(page.getError() != null)
+        <p>${page.getError()}</p>
+    @endif
 `)
