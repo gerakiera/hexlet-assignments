@@ -7,10 +7,8 @@ import io.javalin.Javalin;
 import io.javalin.http.NotFoundResponse;
 import io.javalin.rendering.template.JavalinJte;
 
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.List;
-
-import static io.javalin.rendering.template.TemplateUtil.model;
 
 public final class App {
 
@@ -25,19 +23,25 @@ public final class App {
         });
 
         // BEGIN
-        app.get("/users/{id}", ctx -> {
-            var id = ctx.queryParamAsClass("id", Long.class).get();
-            var user = USERS.stream()
+        app.get("/users", ctx -> {
+            UsersPage page = new UsersPage(USERS);
+            ctx.render("users/index.jte", Collections.singletonMap("page", page));
+        });
+
+
+        app.get("users/{id}", ctx -> {
+            int id = Integer.parseInt(ctx.pathParam("id"));
+            User user = USERS.stream()
                     .filter(u -> u.getId() == id)
                     .findFirst()
-                    .orElseThrow(() -> new NotFoundResponse("User not found"));
-            var userPage = new UserPage(user);
-            ctx.render("users/show.jte", model("userPage", userPage));
-        });
-        app.get("/users", ctx -> {
-            List<User> userList = USERS.stream().sorted(Comparator.comparingLong(User::getId)).toList();
-            UsersPage page = new UsersPage(userList);
-            ctx.render("users/index.jte", model("page", page));
+                    .orElse(null);
+
+            if (user == null) {
+                throw new NotFoundResponse("User not found");
+            } else {
+                UserPage page = new UserPage(user);
+                ctx.render("users/show.jte", Collections.singletonMap("page", page));
+            }
         });
         // END
 
