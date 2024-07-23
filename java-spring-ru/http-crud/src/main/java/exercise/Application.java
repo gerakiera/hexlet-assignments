@@ -28,18 +28,17 @@ public class Application {
     // BEGIN
     @GetMapping("/posts") // список всех постов
     public List<Post> index(@RequestParam(defaultValue = "1") Integer page,
-            @RequestParam(defaultValue = "10") Integer limit) {
+            @RequestParam(defaultValue = "1") Integer limit) {
         return posts.stream()
-                .skip((long) (page - 1) * limit)
+                .skip(page - 1)
                 .limit(limit)
                 .toList();
     }
     @GetMapping("/pages/{id}") // просмотр конкретного поста
     public Optional<Post> show(@PathVariable String id) {
-        var post = posts.stream()
+        return posts.stream()
                 .filter(p -> p.getId().equals(id))
                 .findFirst();
-        return post;
     }
     @PostMapping("/posts") // создание нового поста
     public Post create(@RequestBody Post post) {
