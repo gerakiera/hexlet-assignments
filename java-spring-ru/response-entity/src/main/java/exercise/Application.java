@@ -37,12 +37,12 @@ public class Application {
                 .header("X-Total-Count", String.valueOf(posts.size()))
                 .body(result);
     }
-    @GetMapping("/pages/{id}")
+    @GetMapping("/posts/{id}") // просмотр конкретного поста
     public ResponseEntity<Post> show(@PathVariable String id) {
-        var page = posts.stream()
+        var post = posts.stream()
                 .filter(p -> p.getId().equals(id))
                 .findFirst();
-        return ResponseEntity.of(page);
+        return ResponseEntity.of(post);
     }
     @PostMapping("/posts") // создание нового поста
     public ResponseEntity<Post> create(@RequestBody Post post) {
