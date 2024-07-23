@@ -27,8 +27,12 @@ public class Application {
 
     // BEGIN
     @GetMapping("/posts") // список всех постов
-    public List<Post> index(@RequestParam(defaultValue = "10") Integer limit) {
-        return posts.stream().limit(limit).toList();
+    public List<Post> index(@RequestParam(defaultValue = "1") Integer page,
+            @RequestParam(defaultValue = "10") Integer limit) {
+        return posts.stream()
+                .skip(page - 1)
+                .limit(limit)
+                .toList();
     }
     @GetMapping("/pages/{id}") // просмотр конкретного поста
     public Optional<Post> show(@PathVariable String id) {
