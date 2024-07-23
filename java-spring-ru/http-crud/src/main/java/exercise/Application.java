@@ -34,7 +34,7 @@ public class Application {
                 .limit(limit)
                 .toList();
     }
-    @GetMapping("/pages/{id}") // просмотр конкретного поста
+    @GetMapping("/posts/{id}") // просмотр конкретного поста
     public Optional<Post> show(@PathVariable String id) {
         return posts.stream()
                 .filter(p -> p.getId().equals(id))
@@ -52,12 +52,11 @@ public class Application {
                 .findFirst();
         if (maybePost.isPresent()) {
             var post = maybePost.get();
-            //post.setId(data.getId());
+            post.setId(data.getId());
             post.setTitle(data.getTitle());
             post.setBody(data.getBody());
-            return post;
         }
-        return null;
+        return data;
     }
     @DeleteMapping("/posts/{id}") // удаление поста
     public void destroy(@PathVariable String id) {
