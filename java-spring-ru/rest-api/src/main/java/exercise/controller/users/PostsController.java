@@ -18,13 +18,13 @@ import java.util.List;
 @RequestMapping("/api")
 public class PostsController {
     private final List<Post> posts = Data.getPosts();
-    @GetMapping("users/{userId}/posts")
+    @GetMapping("/users/{userId}/posts")
     public List<Post> show(@PathVariable Integer userId) {
         return posts.stream()
             .filter(p -> p.getUserId() == userId)
             .toList();
     }
-    @PostMapping("users/{id}/posts")
+    @PostMapping("/users/{id}/posts")
     @ResponseStatus(HttpStatus.CREATED)
     public Post create(@PathVariable Integer userId, @RequestBody Post post) {
         post.setUserId(userId);
