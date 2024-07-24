@@ -23,7 +23,7 @@ public class Application {
     @Autowired
     private UserProperties usersInfo;
     @GetMapping("/admins")
-    public List<String> show() {
+    public List<String> listOfAdmins() {
         var adminsEmail = usersInfo.getAdmins();
         return users.stream()
                 .filter(u -> adminsEmail.contains(u.getEmail()))
