@@ -17,7 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class PostsController {
-private final List<Post> posts = Data.getPosts();
+    private final List<Post> posts = Data.getPosts();
     @GetMapping("users/{userId}/posts")
     public List<Post> show(@PathVariable Integer userId) {
         return posts.stream()
