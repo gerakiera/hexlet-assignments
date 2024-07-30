@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.http.HttpStatus;
 import java.util.List;
-import java.util.Optional;
 
 import exercise.model.Post;
 import exercise.repository.PostRepository;
