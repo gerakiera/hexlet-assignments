@@ -1,23 +1,23 @@
 package exercise.controller;
 
+import exercise.exception.ResourceNotFoundException;
+import exercise.model.Post;
 import exercise.repository.CommentRepository;
+import exercise.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.http.HttpStatus;
-import java.util.List;
 
-import exercise.model.Post;
-import exercise.repository.PostRepository;
-import exercise.exception.ResourceNotFoundException;
+import java.util.List;
 
 // BEGIN
 @RestController
@@ -49,7 +49,7 @@ public class PostsController {
         return postRepository.save(post);
     }
     @PutMapping(path = "/{id}") // Обновление страницы
-    public Post update(@PathVariable String id, @RequestBody Post data) {
+    public Post update(@PathVariable long id, @RequestBody Post data) {
         var post = postRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Post with id " + id + " not found"));
 
