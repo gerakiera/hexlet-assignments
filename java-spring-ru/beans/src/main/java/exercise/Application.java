@@ -28,5 +28,6 @@ public class Application {
         }
         return new Night();
     }
+
     // END
 }
