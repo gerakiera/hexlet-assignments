@@ -20,6 +20,7 @@ class App {
         } catch (InterruptedException e) {
             System.out.println("Error: " + e.getMessage());
         }
+
         Map<String, Integer> result = new HashMap<>();
         result.put("min", minThread.getMin());
         result.put("max", maxThread.getMax());
